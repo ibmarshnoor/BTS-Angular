@@ -19,15 +19,15 @@ export class Bug{
   projectId:string="1";
   synopsis:string="Synopsis";
   description:string="Description";
-  priority:string="priority";
-  status:string="status";
-  type:string="Type";
-  severity:string="Severity";
+  priority: Priority = 0;
+  status: Status = 0;
+  type: TypeEnum = 0;
+  severity:Severity=0;
   buildVersion:string="Version 1";
   developerId:number=1;
   testerId:number=1;
-  etaDate:string="16-04-2021";
+  etaDate!: Date;
   submittedOn:Date=new Date();
   inputName:string="Bug 1";
-  inputStatus:string="";
+  inputStatus: Status = 0;
 }

@@ -40,7 +40,7 @@ export class BugFormComponent implements OnInit {
     }
       getByName(name:string){
         const observable = this.bugService.getByName(name);
-      observable.subscribe(response => {
+        observable.subscribe(response => {
         console.log(response);
         this.bugArray=response;
       })

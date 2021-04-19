@@ -10,10 +10,3 @@ th,td{
   padding: 8px;
 }
 
-tr:nth-child(odd){
-  background-color: aqua;
-}
-
-tr,tr td:hover{
-  background-color: red;
-}
