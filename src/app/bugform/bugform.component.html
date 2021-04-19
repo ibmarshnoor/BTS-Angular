@@ -53,13 +53,15 @@
 <button (click)='save()'>Save</button>
 <table>
   <thead>
-  <th>Name</th>
+  <th>Name <input [(ngModel)]='bug.inputName'> <button (click)="getByName(bug.inputName)" class="btn btn-info"> Search</button></th>
   <th>Product</th>
   <th>Module</th>
   <th>ProjectId</th>
   <th>Synopsis</th>
   <th>Description</th>
-  <th>Status</th>
+  <th>Status <select id="status" [(ngModel)]='bug.inputStatus'>
+    <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
+  </select> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info"> Search</button></th>
   <th>Priority</th>
   <th>Severity</th>
   <th>Type</th>
@@ -89,6 +91,5 @@
   </tr>
 </tbody>
 </table>
-
 </body>
 </html>

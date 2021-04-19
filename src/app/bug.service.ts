@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Bug, Status } from './Bug';
+import { Bug} from './Bug';
+import { Status } from './Bug'
 const URL='http://localhost:8080/bug';
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ export class BugService {
   getAllBugs(){
     return this.http.get(URL);
   }
-  getByName(name:string){
-   return this.http.get(name);
+  getByName(bugName:string){
+   return this.http.get(URL+'name/'+bugName);
   }
-  getByStatus(status:string){
-    return this.http.get(status);
+  getByStatus(bugStatus:Status){
+    return this.http.get(URL+'status/'+status);
   }
 }

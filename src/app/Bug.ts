@@ -14,18 +14,20 @@ export enum Severity{
 }
 export class Bug{
   name:string='Bug 1';
-  product:string='product 1';
+  product:string='Product 1';
   module:string='Module 1';
-  projectId:string='1';
-  synopsis:string='Synopsis';
-  description:string='Description';
-  priority:string='';
-  status:string='';
-  type:string='';
-  severity:string='';
-  buildVersion:string='Version';
+  projectId:string="1";
+  synopsis:string="Synopsis";
+  description:string="Description";
+  priority:string="priority";
+  status:string="status";
+  type:string="Type";
+  severity:string="Severity";
+  buildVersion:string="Version 1";
   developerId:number=1;
   testerId:number=1;
-  etaDate:number=1;
+  etaDate:string="16-04-2021";
   submittedOn:Date=new Date();
+  inputName:string="Bug 1";
+  inputStatus:string="";
 }

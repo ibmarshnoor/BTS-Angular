@@ -14,10 +14,10 @@ import { Severity  } from '../Bug';
 export class BugFormComponent implements OnInit {
   bug:Bug=new Bug();
   bugArray:any;
-  statusValues=Object.values(Status);
-  priorityValues=Object.values(Priority);
-  typeValues=Object.values(TypeEnum);
-  severityValues=Object.values(Severity);
+  statusValues=Object.values(Status).filter(x => typeof x==="string");
+  priorityValues=Object.values(Priority).filter(x => typeof x==="string");;
+  typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
+  severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
    save(){
      const promise=this.bugService.save(this.bug);
@@ -29,9 +29,22 @@ export class BugFormComponent implements OnInit {
      error=>{
        console.log(error);
        alert("error happened");
-
      })
-  }
+    }
+     getByStatus(status:Status){
+      const observable = this.bugService.getByStatus(status);
+      observable.subscribe(response => {
+        console.log(response);
+        this.bugArray=response;
+      })
+    }
+      getByName(name:string){
+        const observable = this.bugService.getByName(name);
+      observable.subscribe(response => {
+        console.log(response);
+        this.bugArray=response;
+      })
+    }
   ngOnInit(): void {
     const observable = this.bugService.getAllBugs();
     observable.subscribe(response => {
