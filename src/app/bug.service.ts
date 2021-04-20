@@ -24,4 +24,9 @@ export class BugService {
   getByStatus(bugStatus:Status){
     return this.http.get(URL+'/status/'+bugStatus);
   }
+  validate(bug:Bug){
+   if(bug.description.length<10){
+      alert('Description is shorter');
+   }
+  }
 }

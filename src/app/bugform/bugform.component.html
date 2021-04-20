@@ -19,76 +19,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLink='/' routerLinkActive="active">Home</a>
+          <a class="nav-item nav-link" routerLink='/create' routerLinkActive="active">Create Bug</a>
+          <a class="nav-item nav-link" routerLink='/search' routerLinkActive="active">Search Bug</a>
           </div>
       </div>
     </nav>
-    <label>Bug-name</label><input [(ngModel)]='bug.name' type="text" placeholder="Name"><br>
-<label>Product</label><input [(ngModel)]='bug.product' type="text" placeholder="Product"><br>
-<label>Module</label><input [(ngModel)]='bug.module' type="text" placeholder="Module"><br>
-<label>Project Id</label><input [(ngModel)]='bug.projectId' type="text" placeholder="Project Id"><br>
-<label>Synopsis</label><input [(ngModel)]='bug.synopsis' type="text" placeholder="Synopsis"><br>
-<label>Description</label><input [(ngModel)]='bug.description' type="text" placeholder="Description"><br>
-<label>Status</label><select id="status" [(ngModel)]='bug.status'>
-  <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-</select>
-<br>
-<label>Priority</label><select id="priority" [(ngModel)]='bug.priority'>
-  <option *ngFor="let value of priorityValues " [value]="value">{{value}}</option>
-</select>
-<br>
-<label>Type</label><select id="type" [(ngModel)]='bug.type'>
-  <option *ngFor="let value of typeValues " [value]="value">{{value}}</option>
-</select>
-<br>
-<label>Severity</label><select id="severity" [(ngModel)]='bug.severity'>
-  <option *ngFor="let value of severityValues " [value]="value">{{value}}</option>
-</select><br>
-<label>Developer Id</label><input [(ngModel)]='bug.developerId' type="number" placeholder="Developer Id"><br>
-<label>Tester Id</label><input [(ngModel)]='bug.testerId' type="number" placeholder="Tester Id"><br>
-<label>ETA</label><input [(ngModel)]='bug.etaDate' type="date" placeholder="Eta"><br>
-<label>Build Version</label><input [(ngModel)]='bug.buildVersion' type="text" placeholder="Build Version"><br>
-<button (click)='save()'>Save</button>
-<input [(ngModel)]='bug.inputName'> <button (click)="getByName(bug.inputName)" class="btn btn-info"> Search</button>
-<select id="status" [(ngModel)]='bug.inputStatus'>
-  <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-</select> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info"> Search</button>
-<table>
-  <thead>
-  <th>Name</th>
-  <th>Product</th>
-  <th>Module</th>
-  <th>ProjectId</th>
-  <th>Synopsis</th>
-  <th>Description</th>
-  <th>Status </th>
-  <th>Priority</th>
-  <th>Severity</th>
-  <th>Type</th>
-  <th>BuildVersion</th>
-  <th>DeveloperId</th>
-  <th>TesterId</th>
-  <th>EtaDate</th>
-  <th>SubmittedOn</th>
-</thead>
-<tbody><td>{{bug.name}}</td>
-  <tr *ngFor ='let bug of bugArray'>
-    <td>{{bug.name}}</td>
-    <td>{{bug.priority}}</td>
-    <td>{{bug.status}}</td>
-    <td>{{bug.testerId}</td>
-    <td>{{bug.developerId}}</td>
-    <td>{{bug.module}</td>
-    <td>{{bug.projectId}}</td>
-    <td>{{bug.product}}</td>
-    <td>{{bug.description}}</td>
-    <td>{{bug.synopsis}}</td>
-    <td>{{bug.type}}</td>
-    <td>{{bug.buildVersion}}</td>
-    <td>{{bug.severity}}</td>
-    <td>{{bug.etaDate}}</td>
-    <td>{{bug.submittedOn}}</td>
-  </tr>
-</tbody>
-</table>
+
 </body>
 </html>

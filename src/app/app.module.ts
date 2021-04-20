@@ -7,6 +7,14 @@ import { BugFormComponent } from './bugform/bugform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateBugComponent } from './create-bug/create-bug.component';
 import { SearchBugComponent } from './search-bug/search-bug.component';
+import {RouterModule,Routes} from '@angular/router';
+import { UpdateBugComponent } from './update-bug/update-bug.component'
+const appRoutes:Routes = [
+  {path : '',component:BugFormComponent},
+  {path : 'create',component:CreateBugComponent},
+  {path : 'search',component:SearchBugComponent},
+  {path : 'update',component:UpdateBugComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,8 +22,12 @@ import { SearchBugComponent } from './search-bug/search-bug.component';
     BugFormComponent,
     CreateBugComponent,
     SearchBugComponent,
+    UpdateBugComponent,
   ],
-  imports: [
+  imports: [RouterModule.forRoot(
+    appRoutes,
+    { enableTracing: true}
+  ),
     BrowserModule,FormsModule,HttpClientModule,
   ],
   providers: [],
