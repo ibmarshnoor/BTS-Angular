@@ -28,11 +28,11 @@
       </nav>
       <br>
       <div>
-      <label>Bug-name</label><input [(ngModel)]='bug.name' type="text" placeholder="Name" required><br>
-      <label>Priority</label><select id="priority" [(ngModel)]='bug.priority' required>
+      <label>Bug-name</label><br><input [(ngModel)]='bug.name' type="text" placeholder="Name" id="name" required><br>
+      <label>Priority</label><br><select id="priority" [(ngModel)]='bug.priority' required>
         <option *ngFor="let value of priorityValues " [value]="value">{{value}}</option>
       </select><br>
-      <label>Status</label><select id="status" [(ngModel)]='bug.status'>
+      <label>Status</label><br><select id="status" [(ngModel)]='bug.status'>
         <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
         </select></div>
       <br>

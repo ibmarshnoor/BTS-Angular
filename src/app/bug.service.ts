@@ -7,6 +7,9 @@ const URL='http://localhost:8080/bug';
   providedIn: 'root'
 })
 export class BugService {
+  update(bugId: string, update: { title: string; description: string; priority: string; status: string; type: string; buildVersion: string; projectId: string; module: string; product: string; etaDate: string; }) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http:HttpClient) { }
   save(bug:Bug){

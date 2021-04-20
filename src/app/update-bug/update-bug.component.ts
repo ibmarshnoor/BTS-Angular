@@ -10,24 +10,27 @@ import { BugService } from '../bug.service';
 export class UpdateBugComponent implements OnInit {
   bug:Bug=new Bug();
   bugArray:any;
+  title: string = "update bugs";
   statusValues=Object.values(Status).filter(x => typeof x==="string");
   priorityValues=Object.values(Priority).filter(x => typeof x==="string");;
   //typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
-  ngOnInit(): void {
+    update(){
+  //   const promise=this.bugService.update(this.bug);
+  //    promise.subscribe(response=>{
+  //      console.log(response);
+  //      alert("Created Bug");
+  //      this.bugArray.push(Object.assign({},this.bug));
 
+  //   },
+  //   error=>{
+  //     console.log(error);
+  //     alert("Error !! : "+error.headers.get("error"))
+  //   })
+   }
+
+  ngOnInit(): void {
   }
-   update(){
-    const promise=this.bugService.save(this.bug);
-    promise.subscribe(response=>{
-      console.log(response);
-      alert("Updated Bug");
-      this.bugArray.push(Object.assign({},this.bug));
-    },
-    error=>{
-      console.log(error);
-      alert("error happened");
-    })
-}
+
 }
