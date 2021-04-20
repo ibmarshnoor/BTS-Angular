@@ -48,24 +48,26 @@
 <label>ETA</label><input [(ngModel)]='bug.etaDate' type="date" placeholder="Eta"><br>
 <label>Build Version</label><input [(ngModel)]='bug.buildVersion' type="text" placeholder="Build Version"><br>
 <button (click)='save()'>Save</button>
+<input [(ngModel)]='bug.inputName'> <button (click)="getByName(bug.inputName)" class="btn btn-info"> Search</button>
+<select id="status" [(ngModel)]='bug.inputStatus'>
+  <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
+</select> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info"> Search</button>
 <table>
   <thead>
-  <th>Name <input [(ngModel)]='bug.inputName'> <button (click)="getByName(bug.inputName)" class="btn btn-info"> Search</button></th>
+  <th>Name</th>
   <th>Product</th>
   <th>Module</th>
   <th>ProjectId</th>
   <th>Synopsis</th>
   <th>Description</th>
-  <th>Status <select id="status" [(ngModel)]='bug.inputStatus'>
-    <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-  </select> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info"> Search</button></th>
+  <th>Status </th>
   <th>Priority</th>
   <th>Severity</th>
   <th>Type</th>
   <th>BuildVersion</th>
   <th>DeveloperId</th>
   <th>TesterId</th>
-  <th>EtaDate
+  <th>EtaDate</th>
   <th>SubmittedOn</th>
 </thead>
 <tbody><td>{{bug.name}}</td>
