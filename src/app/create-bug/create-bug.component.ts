@@ -15,7 +15,6 @@ export class CreateBugComponent implements OnInit {
   typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
-
    save(){
      const promise=this.bugService.save(this.bug);
      promise.subscribe(response=>{

@@ -17,8 +17,8 @@ export class Bug{
   product:string='Product 1';
   module:string='Module 1';
   projectId:string="1";
-  synopsis:string="Synopsis";
-  description:string="Description";
+  synopsis="";
+  description="";
   priority: Priority = 0;
   status: Status = 0;
   type: TypeEnum = 0;
