@@ -13,21 +13,22 @@ export enum Severity{
   HIGH,MEDIUM,LOW
 }
 export class Bug{
-  name='';
-  product='';
-  module='';
-  projectId='';
-  synopsis='';
-  description='';
-  priority='';
-  status='';
+  id:string="aedsdfg";
+  name:string='Bug 1';
+  product:string='Product 1';
+  module:string='Module 1';
+  projectId:string="";
+  synopsis="";
+  description="";
+  priority: Priority = 0;
+  status: Status = 0;
   type: TypeEnum = 0;
   severity:Severity=0;
-  buildVersion='';
-  developerId='';
-  testerId='';
+  buildVersion:string="Version 1";
+  developerId:number=1;
+  testerId:number=1;
   etaDate!: Date;
   submittedOn:Date=new Date();
-  inputName='';
+  inputName:string="Bug 1";
   inputStatus: Status = 0;
 }

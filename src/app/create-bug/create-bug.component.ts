@@ -16,6 +16,11 @@ export class CreateBugComponent implements OnInit {
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
    save(){
+     const currentDate=new Date();
+     const eta=new Date(this.bug.etaDate);
+     if(eta<currentDate){
+       alert('Eta should be a future date');
+     }
      const promise=this.bugService.save(this.bug);
      promise.subscribe(response=>{
        console.log(response);

@@ -16,8 +16,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Bug-Tracker</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+            </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link" routerLink='/' routerLinkActive="active">Home</a>
@@ -28,70 +28,90 @@
         </div>
       </nav>
       <br>
+  <div class="container">
   <div class="row">
   <div class="col">
-  <div>
   <label>Bug-name*</label><br>
-  <input [(ngModel)]='bug.name' id="name" #name="ngModel" type="text" placeholder="Name" class="form-control-sm" maxlength=15 required><br>
-  <label>Characters used{{bug.name.length}}/15</label><br>
+  <input [(ngModel)]='bug.name' id="name" #name="ngModel" type="text" placeholder="Name" class="form-control-sm" maxlength=100 required><br>
+  <label>Characters used {{bug.name.length}}/100</label><br>
   <div *ngIf="name.touched && name.invalid" class="alert alert danger">
   <div *ngIf="name.errors.required">Name is required</div>
-  </div>
-  </div>
-  <div>
+  </div></div>
+  <div class="col">
   <label>Product</label><br>
   <input [(ngModel)]='bug.product' #product="ngModel" type="text" placeholder="Product" class="form-control-sm" required><br>
   <div *ngIf="product.touched && product.invalid" class="alert alert danger">
   <div *ngIf="product.errors.required">Product is required</div>
-  </div></div>
-  <div>
+  </div>
+  </div>
+  <div class="col">
   <label>Module</label><br>
   <input [(ngModel)]='bug.module' #module="ngModel" type="text" placeholder="Module" class="form-control-sm" required><br>
   <div *ngIf="module.touched && module.invalid" class="alert alert danger">
     <div *ngIf="module.errors.required">Module is required</div>
-    </div></div>
+    </div>
+  </div>
+  <div class="col">
   <label>Project Id</label><br>
   <input [(ngModel)]='bug.projectId' #projectId="ngModel" type="text" placeholder="Project Id" class="form-control-sm" required><br>
   <div *ngIf="projectId.touched && projectId.invalid" class="alert alert danger">
   <div *ngIf="projectId.errors.required">ProjectId is required</div>
   </div>
-  <div>
+  </div>
+  <div class="col">
   <label>Synopsis</label><br>
   <textarea [(ngModel)]='bug.synopsis' #synopsis="ngModel" cols="30" rows="5" placeholder="Max characters to 100" class="form-control-sm"  maxlength="100" minlength="10" required><br></textarea><br>
   <div *ngIf="synopsis.touched && synopsis.invalid" class="alert alert danger">
   <div *ngIf="synopsis.errors.maxlength">Synopsis should not be more than 100 characters</div>
   <div *ngIf="synopsis.errors.minlength">Synopsis be more than 10 characters</div>
-  </div></div>
-  <div>
+  </div>
+  </div>
+  <div class="col">
   <label>Description</label><br>
   <textarea [(ngModel)]='bug.description' #description="ngModel" cols="30" rows="5" placeholder="Max characters to be 200" class="form-control-sm" maxlength="200" minlength="10" required></textarea>
   <div *ngIf="description.touched && description.invalid" class="alert alert danger">
     <div *ngIf="description.errors.maxlength">Description should not be more than 100 characters</div>
     <div *ngIf="description.errors.minlength">Description be more than 10 characters</div>
-    </div></div>
+    </div>
+  </div>
+  <div class="col">
   <label>Status*</label><br><select id="status" [(ngModel)]='bug.status' required>
   <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
   </select>
-  <br>
+  </div>
+  <div class="col">
   <label>Priority*</label><br><select id="priority" [(ngModel)]='bug.priority' required>
     <option *ngFor="let value of priorityValues " [value]="value">{{value}}</option>
   </select>
-  <br>
- <label>Type*</label><br><select id="type" [(ngModel)]='bug.type' required>
+  </div>
+  <div class="col">
+    <label>Type*</label><br><select id="type" [(ngModel)]='bug.type' required>
     <option *ngFor="let value of typeValues " [value]="value">{{value}}</option>
   </select>
-  <br>
+</div>
+<div class="col">
  <label>Severity</label><br><select id="severity" [(ngModel)]='bug.severity' required>
     <option *ngFor="let value of severityValues " [value]="value">{{value}}</option>
-  </select><br>
-<label>Developer Id</label><br><input [(ngModel)]='bug.developerId' type="number" placeholder="Developer Id"><br>
-<label>Tester Id</label><br><input [(ngModel)]='bug.testerId' type="number" placeholder="Tester Id"><br>
- <label>ETA*</label><br><input [(ngModel)]='bug.etaDate' type="date" placeholder="Eta" required><br>
+  </select></div>
+  <div class="col">
+<label>Developer Id</label><br>
+<input [(ngModel)]='bug.developerId' type="number" placeholder="Developer Id"><br>
+</div>
+<div class="col">
+<label>Tester Id</label><br>
+<input [(ngModel)]='bug.testerId' type="number" placeholder="Tester Id"><br>
+ </div>
+ <div class="col">
+ <label>ETA*</label><br>
+ <input [(ngModel)]='bug.etaDate' type="date" placeholder="Eta" required><br>
+</div>
+<div class="col">
  <label>Build Version</label><br><input [(ngModel)]='bug.buildVersion' type="text" placeholder="Build Version"><br>
  <br>
- <button (click)='save()' class="btn btn-primary">Submit</button>
+ </div>
 </div>
 </div>
+<button (click)='save()' class="btn btn-primary" id="button">Submit</button>
 </div>
 </body>
 </html>

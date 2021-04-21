@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Bug, Status, Priority, Severity } from '../Bug';
+import { Bug, Status, Priority, Severity, TypeEnum } from '../Bug';
 import { BugService } from '../bug.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-bug',
@@ -8,27 +9,28 @@ import { BugService } from '../bug.service';
   styleUrls: ['./update-bug.component.css']
 })
 export class UpdateBugComponent implements OnInit {
+
   bug:Bug=new Bug();
   bugArray:any;
-  title: string = "update bugs";
+  name:string = '';
   statusValues=Object.values(Status).filter(x => typeof x==="string");
   priorityValues=Object.values(Priority).filter(x => typeof x==="string");;
-  //typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
+  typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
-    update(){
-  //   const promise=this.bugService.update(this.bug);
-  //    promise.subscribe(response=>{
-  //      console.log(response);
-  //      alert("Created Bug");
-  //      this.bugArray.push(Object.assign({},this.bug));
+    updateBug(bugId:string){
+    const promise=this.bugService.updateBug(bugId,this.bug);
+     promise.subscribe((response:any)=>{
+       console.log(response);
+       alert("Bug updated");
+    },
+       (    error: any)=>{
+      console.log(error);
+      alert("Error happened");
+    })
 
-  //   },
-  //   error=>{
-  //     console.log(error);
-  //     alert("Error !! : "+error.headers.get("error"))
-  //   })
-   }
+  }
+
 
   ngOnInit(): void {
   }

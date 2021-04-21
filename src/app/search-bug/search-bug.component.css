@@ -1,2 +1,6 @@
 #q1 {display:inline-block; margin-right:10px;}
 #q2 {display:inline-block;margin-right:10px;}
+table,td,th{
+  border: 1px solid black;
+  border-collapse: collapse;
+}

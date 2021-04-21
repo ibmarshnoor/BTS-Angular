@@ -13,17 +13,35 @@ export class SearchBugComponent implements OnInit {
   statusValues=Object.values(Status).filter(x => typeof x==="string");
   constructor(private bugService: BugService) { }
   getByStatus(status:Status){
+    if(status==null){
+      alert('Enter Status');
+    }
     const observable = this.bugService.getByStatus(status);
     observable.subscribe(response => {
       console.log(response);
+      if(response==0){
+        alert('Bug with input status not found');
+      }
       this.bugArray=response;
+    },error=>{
+      console.log(error);
+      alert("Error");
     })
   }
     getByName(name:string){
+      if(name==null){
+        alert('Enter Name');
+      }
       const observable = this.bugService.getByName(name);
       observable.subscribe(response => {
       console.log(response);
+      if(response==0){
+        alert('Bug with input name not found');
+      }
       this.bugArray=response;
+    },error=>{
+      console.log(error);
+      alert("Error");
     })
   }
 

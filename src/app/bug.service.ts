@@ -18,6 +18,12 @@ export class BugService {
       responseType:"text"
     });
   }
+  updateBug(bugId:String,bug:Bug){
+    return this.http.put(URL+'/'+bugId,bug,{
+      headers:{'content-type':'application/json' },
+      responseType:"text"
+    });
+  }
   getAllBugs(){
     return this.http.get(URL);
   }
@@ -26,10 +32,5 @@ export class BugService {
   }
   getByStatus(bugStatus:Status){
     return this.http.get(URL+'/status/'+bugStatus);
-  }
-  validate(bug:Bug){
-   if(bug.description.length<10){
-      alert('Description is shorter');
-   }
   }
 }
