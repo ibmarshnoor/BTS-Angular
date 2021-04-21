@@ -44,6 +44,21 @@ export class SearchBugComponent implements OnInit {
       alert("Error");
     })
   }
+  getByStatusAndName(status:Status,name:string){
+    if(status==null || name==null){
+      alert("enter both  status and name");
+    }
+    const observable=this.bugService.getByStatusAndName(status,name);
+    observable.subscribe(response => {
+      console.log(response);
+      if(response==0){
+        alert(" Bug with input status and name not found");
+      }
+      this.bugArray=response;
+
+  }
+    )
+  }
 
   ngOnInit(): void {
     const observable = this.bugService.getAllBugs();

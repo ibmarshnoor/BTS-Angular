@@ -33,4 +33,7 @@ export class BugService {
   getByStatus(bugStatus:Status){
     return this.http.get(URL+'/status/'+bugStatus);
   }
+  getByStatusAndName(bugStatus:Status,bugName:string){
+    return this.http.get(URL+'search?status='+bugStatus+"&name="+bugName);
+  }
 }

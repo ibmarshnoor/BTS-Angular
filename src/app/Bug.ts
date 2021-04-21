@@ -13,7 +13,7 @@ export enum Severity{
   HIGH,MEDIUM,LOW
 }
 export class Bug{
-  id:string="aedsdfg";
+  id:string="";
   name:string='Bug 1';
   product:string='Product 1';
   module:string='Module 1';
