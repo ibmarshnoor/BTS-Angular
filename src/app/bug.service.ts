@@ -21,7 +21,6 @@ export class BugService {
   updateBug(bugId:String,bug:Bug){
     return this.http.put(URL+'/'+bugId,bug,{
       headers:{'content-type':'application/json' },
-      responseType:"text"
     });
   }
   getAllBugs(){

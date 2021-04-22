@@ -14,11 +14,11 @@ export enum Severity{
 }
 export class Bug{
   id:string="";
-  name:string='';
+  name:string='Bug 1';
   product:string='Product 1';
   module:string='Module 1';
   projectId:string="";
-  synopsis:string="";
+  synopsis="";
   description="";
   priority: Priority = 0;
   status: Status = 0;

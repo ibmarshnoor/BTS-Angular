@@ -18,7 +18,16 @@ export class UpdateBugComponent implements OnInit {
   typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
+  validate() {
+    if (!this.bug.name.trim()) {
+      alert('Please enter Bug name.');
+    }
+  }
     updateBug(bugId:string){
+      if(bugId==null ){
+        console.log("Id cannot be null");
+      }
+      //this.validate();
     const promise=this.bugService.updateBug(bugId,this.bug);
      promise.subscribe((response:any)=>{
        console.log(response);
@@ -26,10 +35,26 @@ export class UpdateBugComponent implements OnInit {
     },
        (    error: any)=>{
       console.log(error);
-      alert("Error happened");
+      alert("Status is Invalid");
     })
 
   }
+  getByName(name:string){
+    if(name==null){
+      alert('Enter Name');
+    }
+    const observable = this.bugService.getByName(name);
+    observable.subscribe(response => {
+    console.log(response);
+    if(response==0){
+      alert('Bug with input name not found');
+    }
+    this.bugArray=response;
+  },error=>{
+    console.log(error);
+    alert("Error");
+  })
+}
 
 
   ngOnInit(): void {

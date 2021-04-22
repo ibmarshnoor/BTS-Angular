@@ -61,7 +61,8 @@
   <div *ngIf="synopsis.touched && synopsis.invalid" class="alert alert danger">
   <div *ngIf="synopsis.errors.maxlength">Synopsis should not be more than 100 characters</div>
   <div *ngIf="synopsis.errors.minlength">Synopsis be more than 10 characters</div>
-  </div>
+  <label>Characters used {{bug.synopsis.length}}/100</label><br>
+</div>
   </div>
   <div class="col">
   <label>Description</label><br>
@@ -69,7 +70,8 @@
   <div *ngIf="description.touched && description.invalid" class="alert alert danger">
     <div *ngIf="description.errors.maxlength">Description should not be more than 100 characters</div>
     <div *ngIf="description.errors.minlength">Description be more than 10 characters</div>
-    </div>
+    <label>Characters used {{bug.description.length}}/200</label><br>
+  </div>
   </div>
   <div class="col">
   <label>Status*</label><br><select id="status" [(ngModel)]='bug.status' required>

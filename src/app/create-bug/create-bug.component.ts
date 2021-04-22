@@ -29,7 +29,7 @@ export class CreateBugComponent implements OnInit {
      },
      error=>{
        console.log(error);
-       alert("error happened");
+       alert("Please fill the Required Fields!!!");
      })
     }
    ngOnInit(): void {

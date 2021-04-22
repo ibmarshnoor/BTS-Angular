@@ -23,27 +23,52 @@
     <h1 style="text-align: center;">Bug-Tracking System</h1>
       <br>
       <div class="jumbotron">
-        <h3 style="text-align: center;">Update-Bug</h3>
-
-      <div>
-        <label>Id</label><br>
-        <input [(ngModel)]='bug.id' type="text" placeholder="Id" id="name" required><br>
-      </div>
-      <div>
-      <label>Bug-name</label><br>
-      <input [(ngModel)]='bug.name' type="text" placeholder="Name" id="name" required><br>
-      </div>
-      <div>
+        <input [(ngModel)]='bug.inputName' id="q1" style="width:30%;">
+       <button (click)="getByName(bug.inputName)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name"> Search by Name</button>
+        <div class="container">
+        <div *ngFor ='let bug of bugArray' class="row">
+          <div class="col">
+            <label>Id*</label><br>
+            <input  [(ngModel)]='bug.id' type="text"  class="form-control-sm" required><br>
+            </div>
+        <div class="col">
+        <label>Bug-name*</label><br>
+        <input  [(ngModel)]='bug.name' id="name" #name="ngModel" id="name" type="text" placeholder="Name" class="form-control-sm" maxlength=100 required><br>
+        </div>
+        <div class="col">
+        <label>Product</label><br>
+        <input [(ngModel)]='bug.product' #product="ngModel" type="text" placeholder="Product" class="form-control-sm" required><br>
+        </div>
+        <div class="col">
+        <label>Module</label><br>
+        <input [(ngModel)]='bug.module' #module="ngModel" type="text" placeholder="Module" class="form-control-sm" required><br>
+        </div>
+        <div class="col">
+        <label>Project Id</label><br>
+        <input [(ngModel)]='bug.projectId' #projectId="ngModel" type="text" placeholder="Project Id" class="form-control-sm" required><br>
+        </div>
+        <div class="col">
+          <label>Synopsis</label><br>
+          <textarea [(ngModel)]='bug.synopsis' #synopsis="ngModel" cols="30" rows="5" placeholder="Max characters to 100" class="form-control-sm"  maxlength="100" minlength="10" required><br></textarea><br>
+        </div>
+        <div class="col">
+          <label>Description</label><br>
+          <textarea [(ngModel)]='bug.description' #description="ngModel" cols="30" rows="5" placeholder="Max characters to be 200" class="form-control-sm" maxlength="200" minlength="10" required></textarea>
+        </div>
+      <div class="col">
       <label>Priority</label><br>
       <select id="priority" [(ngModel)]='bug.priority' required>
         <option *ngFor="let value of priorityValues " [value]="value">{{value}}</option>
       </select><br></div>
+      <div class="col">
       <div *ngIf="updateBug">
       <label>Status</label><br><select id="status" [(ngModel)]='bug.status'>
         <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-        </select></div>
+        </select></div></div>
       <br>
-      <button *ngIf="updateBug" (click)='updateBug(bug.id)' class="btn btn-primary">Update</button>
-    </div>
-      </body>
+
+      </div><br><button *ngIf="updateBug" (click)='updateBug(bug.id)' class="btn btn-primary">Update</button>
+      </div>
+      </div>
+  </body>
       </html>
