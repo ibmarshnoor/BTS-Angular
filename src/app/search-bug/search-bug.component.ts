@@ -45,14 +45,14 @@ export class SearchBugComponent implements OnInit {
     })
   }
   getByStatusAndName(status:Status,name:string){
-    if(status==null || name==null){
-      alert("enter both  status and name");
+    if(status==0 || name==null){
+      alert("Enter both Status and Name");
     }
     const observable=this.bugService.getByStatusAndName(status,name);
     observable.subscribe(response => {
       console.log(response);
       if(response==0){
-        alert(" Bug with input status and name not found");
+        alert(" Bug with status and name not found ");
       }
       this.bugArray=response;
 

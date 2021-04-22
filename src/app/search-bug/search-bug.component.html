@@ -19,28 +19,23 @@
         <a class="nav-item nav-link" routerLink='/update' routerLinkActive="active">Update Bug</a>
         </div>
   </nav>
-  <body class="jumbotron">
+  <body class="container">
     <h1 style="text-align: center;">Bug-Tracking System</h1>
       <br>
 <div class="jumbotron">
   <div class="row">
     <div class="col-sm">
-  <input [(ngModel)]='bug.inputName' id="q1" style="width:70%;"><br><br><button (click)="getByName(bug.inputName)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name"> Search by Name</button>
+  <input [(ngModel)]='bug.inputName' id="q1" style="width:70%;">Bug-Name<br><br>
+  <!-- <button (click)="getByName(bug.inputName)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name"> Search by Name</button> -->
 </div>
 <div class="col-sm">
   <select id="status" [(ngModel)]='bug.inputStatus' id="q2" style="width:70%; padding:2.5px">
   <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-</select><br><br> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info"> Search by Status</button>
+</select>Status <br><br>
 </div>
-<!-- <div class="col-sm">
-  <label >Search by Status and Name</label><br><br>
-  <input [(ngModel)]='bug.inputName' id="q1">
-  <select id="status" [(ngModel)]='bug.inputStatus' id="q2" placeholder="Bug-Name">
-    <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-  </select><br><br>
-  <button (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info"> Status and Name</button>
-</div> -->
 </div>
+<button (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info">Search Bug</button>
+<br>
 <h3 style="text-align: center;">All-Bugs</h3>
 <br>
 <table>
@@ -64,16 +59,16 @@
     <td>{{bug.name}}</td>
     <td>{{bug.priority}}</td>
     <td>{{bug.status}}</td>
-    <td>{{bug.testerId}</td>
+    <td>{{bug.testerId}}</td>
     <td>{{bug.developerId}}</td>
-    <td>{{bug.module}</td>
+    <td>{{bug.module}}</td>
     <td>{{bug.projectId}}</td>
     <td>{{bug.product}}</td>
     <td>{{bug.type}}</td>
     <td>{{bug.buildVersion}}</td>
     <td>{{bug.severity}}</td>
-    <td>{{bug.submittedOn}}</td>
-    <td><button (click)="deleteBug(bug.id)" class="btn btn-danger">Delete</button></td>
+    <td>{{bug.submittedOn | date}}</td>
+    <td><button (click)="deleteBug(bug.id)" class="btn btn-danger">Delete X</button></td>
   </tr>
 </tbody>
 </table>

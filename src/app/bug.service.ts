@@ -34,7 +34,7 @@ export class BugService {
     return this.http.get(URL+'/status/'+bugStatus);
   }
   getByStatusAndName(bugStatus:Status,bugName:string){
-    return this.http.get(URL+'search?status='+bugStatus+"&name="+bugName);
+    return this.http.get(URL+'/search?status='+bugStatus+"&name="+bugName);
   }
   deleteBug(bugId:String){
     return this.http.delete(URL+'/'+bugId);
