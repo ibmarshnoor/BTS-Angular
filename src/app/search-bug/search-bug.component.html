@@ -19,27 +19,27 @@
         <a class="nav-item nav-link" routerLink='/update' routerLinkActive="active">Update Bug</a>
         </div>
   </nav>
-  <body>
+  <body class="jumbotron">
     <h1 style="text-align: center;">Bug-Tracking System</h1>
       <br>
 <div class="jumbotron">
   <div class="row">
     <div class="col-sm">
-  <input [(ngModel)]='bug.inputName' id="q1"><br><br><button (click)="getByName(bug.inputName)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name"> Search by Name</button>
+  <input [(ngModel)]='bug.inputName' id="q1" style="width:70%;"><br><br><button (click)="getByName(bug.inputName)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name"> Search by Name</button>
 </div>
 <div class="col-sm">
-  <select id="status" [(ngModel)]='bug.inputStatus' id="q2" >
+  <select id="status" [(ngModel)]='bug.inputStatus' id="q2" style="width:70%; padding:2.5px">
   <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-</select><br><br> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info" placeholder="Search by Status"> Search by Status</button>
+</select><br><br> <button (click)="getByStatus(bug.inputStatus)" class="btn btn-info"> Search by Status</button>
 </div>
-<div class="col-sm">
-  <!-- <label >Search by Status and Name</label><br><br> -->
+<!-- <div class="col-sm">
+  <label >Search by Status and Name</label><br><br>
   <input [(ngModel)]='bug.inputName' id="q1">
   <select id="status" [(ngModel)]='bug.inputStatus' id="q2" placeholder="Bug-Name">
     <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
   </select><br><br>
   <button (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info"> Status and Name</button>
-</div>
+</div> -->
 </div>
 <h3 style="text-align: center;">All-Bugs</h3>
 <br>
@@ -57,6 +57,7 @@
   <th>Build version</th>
   <th>Severity</th>
   <th>SubmittedOn</th>
+  <th>Delete-Bug</th>
 </thead>
 <tbody>
   <tr *ngFor ='let bug of bugArray'>
@@ -72,6 +73,7 @@
     <td>{{bug.buildVersion}}</td>
     <td>{{bug.severity}}</td>
     <td>{{bug.submittedOn}}</td>
+    <td><button (click)="deleteBug(bug.id)" class="btn btn-danger">Delete</button></td>
   </tr>
 </tbody>
 </table>

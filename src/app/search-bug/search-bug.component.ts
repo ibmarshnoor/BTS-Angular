@@ -59,6 +59,17 @@ export class SearchBugComponent implements OnInit {
   }
     )
   }
+  deleteBug(bugId:String){
+    const observable=this.bugService.deleteBug(bugId);
+    observable.subscribe(response => {
+      console.log(response);
+      if(response==0){
+        alert(" Bug not found");
+      }
+      this.bugArray=response;
+    }
+    )
+  }
 
   ngOnInit(): void {
     const observable = this.bugService.getAllBugs();
