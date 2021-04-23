@@ -38,4 +38,7 @@ export class BugService {
   deleteBug(bugId:String){
     return this.http.delete(URL+'/'+bugId);
   }
+  partialSearch(bugName:String){
+    return this.http.get(URL+'/name/'+bugName);
+  }
 }

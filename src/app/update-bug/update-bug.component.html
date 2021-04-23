@@ -27,10 +27,10 @@
        <button (click)="getByName(bug.inputName)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name"> Search by Name</button>
         <div class="container">
         <div *ngFor ='let bug of bugArray' class="row">
-          <div class="col">
-            <label>Id*</label><br>
-            <input  [(ngModel)]='bug.id' type="text"  class="form-control-sm" required><br>
-            </div>
+        <div class="col">
+        <label>Id*</label><br>
+        <input  [(ngModel)]='bug.id' type="text"  class="form-control-sm" required><br>
+        </div>
         <div class="col">
         <label>Bug-name*</label><br>
         <input  [(ngModel)]='bug.name' id="name" #name="ngModel" id="name" type="text" placeholder="Name" class="form-control-sm" maxlength=100 required><br>
@@ -66,9 +66,11 @@
         <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
         </select></div></div>
       <br>
-
-      </div><br><button *ngIf="updateBug" (click)='updateBug(bug.id)' class="btn btn-primary">Update</button>
+      </div><br><button (click)='updateBug(bug.inputName,bug.id)' class="btn btn-primary" style="width:100%">Update</button>
       </div>
       </div>
+      <footer>
+        <p style="text-align: center;">©Bug-Tracking Eclipso</p>
+      </footer>
   </body>
       </html>

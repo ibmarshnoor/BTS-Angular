@@ -30,7 +30,7 @@
   <div class="col">
   <label>Bug-name*</label><br>
   <input [(ngModel)]='bug.name' id="name" #name="ngModel" type="text" placeholder="Name" class="form-control-sm" maxlength=100 required><br>
-  <label>Characters used {{bug.name.length}}/100</label><br>
+  <label>{{bug.name.length}}/100 Characters left </label><br>
   <div *ngIf="name.touched && name.invalid" class="alert alert danger">
   <div *ngIf="name.errors.required">Name is required</div>
   </div></div>
@@ -58,19 +58,21 @@
   <div class="col">
   <label>Synopsis</label><br>
   <textarea [(ngModel)]='bug.synopsis' #synopsis="ngModel" cols="30" rows="5" placeholder="Max characters to 100" class="form-control-sm"  maxlength="100" minlength="10" required><br></textarea><br>
+  <label>{{bug.synopsis.length}}/100 Characters left</label><br>
   <div *ngIf="synopsis.touched && synopsis.invalid" class="alert alert danger">
   <div *ngIf="synopsis.errors.maxlength">Synopsis should not be more than 100 characters</div>
   <div *ngIf="synopsis.errors.minlength">Synopsis be more than 10 characters</div>
-  <label>Characters used {{bug.synopsis.length}}/100</label><br>
+
 </div>
   </div>
   <div class="col">
   <label>Description</label><br>
   <textarea [(ngModel)]='bug.description' #description="ngModel" cols="30" rows="5" placeholder="Max characters to be 200" class="form-control-sm" maxlength="200" minlength="10" required></textarea>
+  <label>{{bug.description.length}}/200 Characters left </label><br>
   <div *ngIf="description.touched && description.invalid" class="alert alert danger">
     <div *ngIf="description.errors.maxlength">Description should not be more than 100 characters</div>
     <div *ngIf="description.errors.minlength">Description be more than 10 characters</div>
-    <label>Characters used {{bug.description.length}}/200</label><br>
+
   </div>
   </div>
   <div class="col">
@@ -112,5 +114,8 @@
 </div>
 <button (click)='save()' class="btn btn-primary" id="button">Submit</button>
 </div>
+<footer>
+  <p style="text-align: center;">©Bug-Tacking Eclipso</p>
+</footer>
 </body>
 </html>

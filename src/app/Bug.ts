@@ -14,9 +14,9 @@ export enum Severity{
 }
 export class Bug{
   id:string="";
-  name:string='Bug 1';
-  product:string='Product 1';
-  module:string='Module 1';
+  name:string='';
+  product:string='';
+  module:string='';
   projectId:string="";
   synopsis="";
   description="";

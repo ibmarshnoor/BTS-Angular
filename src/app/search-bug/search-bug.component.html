@@ -19,7 +19,7 @@
         <a class="nav-item nav-link" routerLink='/update' routerLinkActive="active">Update Bug</a>
         </div>
   </nav>
-  <body class="container">
+  <body >
     <h1 style="text-align: center;">Bug-Tracking System</h1>
       <br>
 <div class="jumbotron">
@@ -34,7 +34,7 @@
 </select>Status <br><br>
 </div>
 </div>
-<button (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info">Search Bug</button>
+<button (click)="getByName(bug.inputName)" (click)="partialSearch(bug.inputName)" (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info">Search Bug</button>
 <br>
 <h3 style="text-align: center;">All-Bugs</h3>
 <br>
@@ -73,5 +73,8 @@
 </tbody>
 </table>
 </div>
+<footer>
+  <p style="text-align: center;">©Bug-Tracking Eclipso</p>
+</footer>
 </body>
 </html>

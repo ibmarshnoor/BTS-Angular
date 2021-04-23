@@ -25,7 +25,7 @@ export class SearchBugComponent implements OnInit {
       this.bugArray=response;
     },error=>{
       console.log(error);
-      alert("Error");
+      alert("Bug with status not present");
     })
   }
     getByName(name:string){
@@ -41,13 +41,26 @@ export class SearchBugComponent implements OnInit {
       this.bugArray=response;
     },error=>{
       console.log(error);
-      alert("Error");
+      alert("Bug name doesn't exist");
     })
   }
-  getByStatusAndName(status:Status,name:string){
-    if(status==0 || name==null){
-      alert("Enter both Status and Name");
+  partialSearch(name:String){
+    if(name==null){
+      alert('Enter Name');
     }
+    const observable = this.bugService.partialSearch(name);
+    observable.subscribe(response => {
+    console.log(response);
+    if(response==0){
+      alert('Bug with input name not found');
+    }
+    this.bugArray=response;
+  },error=>{
+    console.log(error);
+    alert("Bug name doesn't exist");
+  })
+  }
+  getByStatusAndName(status:Status,name:string){
     const observable=this.bugService.getByStatusAndName(status,name);
     observable.subscribe(response => {
       console.log(response);
@@ -61,14 +74,21 @@ export class SearchBugComponent implements OnInit {
   }
   deleteBug(bugId:String){
     const observable=this.bugService.deleteBug(bugId);
+    const value= confirm("Do you want to delete a bug?");
+    if(value==true){
     observable.subscribe(response => {
       console.log(response);
+      alert('Bug Deleted!!!');
       if(response==0){
         alert(" Bug not found");
       }
       this.bugArray=response;
     }
     )
+  }
+  else{
+    alert('Bug is not deleted');
+  }
   }
 
   ngOnInit(): void {

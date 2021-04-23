@@ -23,7 +23,7 @@ export class UpdateBugComponent implements OnInit {
       alert('Please enter Bug name.');
     }
   }
-    updateBug(bugId:string){
+    updateBug(bugName:string,bugId:string){
       if(bugId==null ){
         console.log("Id cannot be null");
       }
@@ -33,7 +33,7 @@ export class UpdateBugComponent implements OnInit {
        console.log(response);
        alert("Bug updated");
     },
-       (    error: any)=>{
+       (error: any)=>{
       console.log(error);
       alert("Status is Invalid");
     })
@@ -50,9 +50,18 @@ export class UpdateBugComponent implements OnInit {
       alert('Bug with input name not found');
     }
     this.bugArray=response;
+    this.bug.id=this.bugArray[0].id;
+    this.bug.name=this.bugArray[0].name;
+    this.bug.product=this.bugArray[0].product;
+    this.bug.module=this.bugArray[0].module;
+    this.bug.projectId=this.bugArray[0].projectId;
+    this.bug.synopsis=this.bugArray[0].synopsis;
+    this.bug.description=this.bugArray[0].description;
+    this.bug.priority=this.bugArray[0].priority;
+    this.bug.status=this.bugArray[0].status;
   },error=>{
     console.log(error);
-    alert("Error");
+    alert("BugName is not present");
   })
 }
 

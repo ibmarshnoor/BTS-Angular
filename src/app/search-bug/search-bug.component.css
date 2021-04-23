@@ -4,6 +4,9 @@ table,td,th{
   border: 1px solid black;
   border-collapse: collapse;
 }
+tr:nth-child(odd){
+  background-color: silver;
+}
 button{
   width:100%;
 }
