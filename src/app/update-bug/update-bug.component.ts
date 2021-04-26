@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class UpdateBugComponent implements OnInit {
 
-  bug:Bug=new Bug();
+  bug1:Bug=new Bug();
   bugArray:any;
   name:string = '';
   statusValues=Object.values(Status).filter(x => typeof x==="string");
@@ -19,26 +19,26 @@ export class UpdateBugComponent implements OnInit {
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
   validate() {
-    if (!this.bug.name.trim()) {
+    if (!this.bug1.name.trim()) {
       alert('Please enter Bug name.');
     }
   }
-    updateBug(bugName:string,bugId:string){
-      if(bugId==null ){
-        console.log("Id cannot be null");
-      }
-      //this.validate();
-    const promise=this.bugService.updateBug(bugId,this.bug);
-     promise.subscribe((response:any)=>{
-       console.log(response);
-       alert("Bug updated");
-    },
-       (error: any)=>{
+  updateBug(bugName:String,bugId:String){
+    if(bugName==null){
+      alert("Enter bug name");
+    }
+    else{
+    const promise=this.bugService.updateBug(bugId,this.bug1);
+    promise.subscribe(response=>{
+      console.log(response);
+      alert("Bug updated");
+     },
+    error=>{
       console.log(error);
-      alert("Status is Invalid");
+      alert("Status Invalid");
     })
-
   }
+}
   getByName(name:string){
     if(name==null){
       alert('Enter Name');
@@ -50,15 +50,15 @@ export class UpdateBugComponent implements OnInit {
       alert('Bug with input name not found');
     }
     this.bugArray=response;
-    this.bug.id=this.bugArray[0].id;
-    this.bug.name=this.bugArray[0].name;
-    this.bug.product=this.bugArray[0].product;
-    this.bug.module=this.bugArray[0].module;
-    this.bug.projectId=this.bugArray[0].projectId;
-    this.bug.synopsis=this.bugArray[0].synopsis;
-    this.bug.description=this.bugArray[0].description;
-    this.bug.priority=this.bugArray[0].priority;
-    this.bug.status=this.bugArray[0].status;
+    this.bug1.id=this.bugArray[0].id;
+    this.bug1.name=this.bugArray[0].name;
+    this.bug1.product=this.bugArray[0].product;
+    this.bug1.module=this.bugArray[0].module;
+    this.bug1.projectId=this.bugArray[0].projectId;
+    this.bug1.synopsis=this.bugArray[0].synopsis;
+    this.bug1.description=this.bugArray[0].description;
+    this.bug1.priority=this.bugArray[0].priority;
+    this.bug1.status=this.bugArray[0].status;
   },error=>{
     console.log(error);
     alert("BugName is not present");

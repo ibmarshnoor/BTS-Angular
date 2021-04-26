@@ -10,3 +10,13 @@ tr:nth-child(odd){
 button{
   width:100%;
 }
+.limitTextHeight {
+  height: 10px;
+  overflow: hidden;
+}
+.ellipses{
+  width:120px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}

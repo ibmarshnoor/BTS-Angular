@@ -31,26 +31,27 @@
 <div class="col-sm">
   <select id="status" [(ngModel)]='bug.inputStatus' id="q2" style="width:70%; padding:2.5px">
   <option *ngFor="let value of statusValues" [value]="value">{{value}}</option>
-</select>Status <br><br>
+</select>Status<br><br> <button (click)=" getByStatus(bug.inputStatus)" style="margin: auto;" class="btn btn-info" placeholder="Search by Name" style="width: 50%;"> Search by Status</button> <br><br>
 </div>
 </div>
-<button (click)="getByName(bug.inputName)" (click)="partialSearch(bug.inputName)" (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info">Search Bug</button>
+<button (click)="getByName(bug.inputName)"  (click)="partialSearch(bug.inputName)" (click)="getByStatusAndName(bug.inputStatus,bug.inputName)" class="btn btn-info">Search Bug</button>
 <br>
 <h3 style="text-align: center;">All-Bugs</h3>
 <br>
 <table>
   <thead>
   <th>Name</th>
-  <th>Priiority</th>
+  <th>Priority</th>
   <th>Status</th>
-  <th>TesterId</th>
-  <th>Developer Id </th>
   <th>Module</th>
   <th>Project Id</th>
   <th>Product</th>
   <th>Type</th>
   <th>Build version</th>
   <th>Severity</th>
+  <th>Synopsis</th>
+  <th>Description</th>
+  <th>ETA</th>
   <th>SubmittedOn</th>
   <th>Delete-Bug</th>
 </thead>
@@ -59,14 +60,17 @@
     <td>{{bug.name}}</td>
     <td>{{bug.priority}}</td>
     <td>{{bug.status}}</td>
-    <td>{{bug.testerId}}</td>
-    <td>{{bug.developerId}}</td>
     <td>{{bug.module}}</td>
     <td>{{bug.projectId}}</td>
     <td>{{bug.product}}</td>
     <td>{{bug.type}}</td>
     <td>{{bug.buildVersion}}</td>
     <td>{{bug.severity}}</td>
+    <td [ngClass]="{'limitTextHeight':isReadMore}"><p class="ellipses">{{bug.synopsis}}</p><button  type="button" (click)="showText(bug.synopsis)">
+     {{ isReadMore ? 'Read More': 'Read Less' }}></button></td>
+    <td [ngClass]="{'limitTextHeight':isReadMore}"><p class="ellipses">{{bug.description}}</p><button  type="button" (click)="showDescription(bug.description)">
+     {{ isReadMore ? 'Read More': 'Read Less' }}></button></td>
+    <td>{{bug.etaDate | date}}</td>
     <td>{{bug.submittedOn | date}}</td>
     <td><button (click)="deleteBug(bug.id)" class="btn btn-danger">Delete X</button></td>
   </tr>

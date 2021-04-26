@@ -18,7 +18,7 @@ export class Bug{
   product:string='';
   module:string='';
   projectId:string="";
-  synopsis="";
+  synopsis:string="";
   description="";
   priority: Priority = 0;
   status: Status = 0;

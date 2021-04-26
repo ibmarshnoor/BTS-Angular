@@ -15,6 +15,13 @@ export class CreateBugComponent implements OnInit {
   typeValues=Object.values(TypeEnum).filter(x => typeof x==="string");;
   severityValues=Object.values(Severity).filter(x => typeof x==="string");;
   constructor(private bugService: BugService) { }
+
+  isReadMore=true
+
+  showText(){
+    this.isReadMore=!this.isReadMore
+  }
+
    save(){
      const currentDate=new Date();
      const eta=new Date(this.bug.etaDate);

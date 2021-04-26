@@ -28,6 +28,18 @@ export class SearchBugComponent implements OnInit {
       alert("Bug with status not present");
     })
   }
+
+
+  isReadMore = true
+  showText(bugsynopsis:string) {
+    alert(bugsynopsis);
+     //this.isReadMore = !this.isReadMore
+  }
+  showDescription(bugdescription:string) {
+    alert(bugdescription);
+     //this.isReadMore = !this.isReadMore
+  }
+
     getByName(name:string){
       if(name==null){
         alert('Enter Name');
